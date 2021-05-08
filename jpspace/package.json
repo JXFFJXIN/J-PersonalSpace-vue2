@@ -1,0 +1,39 @@
+{
+  "name": "jpspace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:Avatar": "vue serve ./src/components/Avatar/test.vue",
+    "test:Icon": "vue serve ./src/components/Icon/test.vue",
+    "test:Pager": "vue serve ./src/components/Pager/test.vue",
+    "test:ImageLoader": "vue serve ./src/components/ImageLoader/test.vue",
+    "test:Empty": "vue serve ./src/components/Empty/test.vue",
+    "test:List": "vue serve ./src/components/List/test.vue",
+    "test:Layout": "vue serve ./src/components/Layout/test.vue",
+    "test:Menu": "vue serve ./src/components/Menu/test.vue",
+    "test:Aside": "vue serve ./src/components/Aside/test.vue",
+    "test:Carousel": "vue serve ./src/components/Carousel/test.vue"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "mockjs": "^1.1.0",
+    "querystring": "^0.2.1",
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "less": "^4.1.1",
+    "less-loader": "^5.0.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
