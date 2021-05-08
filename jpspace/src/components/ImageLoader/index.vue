@@ -3,7 +3,7 @@
       <img
         class="placeholder"
         :src="placeholder"
-        v-if="!done"
+        v-if="!isDone"
       >
       <img 
         :src="src"
