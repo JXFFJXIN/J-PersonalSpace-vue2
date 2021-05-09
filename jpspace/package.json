@@ -14,11 +14,13 @@
     "test:Layout": "vue serve ./src/components/Layout/test.vue",
     "test:Menu": "vue serve ./src/components/Menu/test.vue",
     "test:Aside": "vue serve ./src/components/Aside/test.vue",
-    "test:Carousel": "vue serve ./src/components/Carousel/test.vue"
+    "test:Carousel": "vue serve ./src/components/Carousel/test.vue",
+    "test:Toc": "vue serve ./src/components/Toc/test.vue"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "highlight.js": "^10.7.2",
     "mockjs": "^1.1.0",
     "querystring": "^0.2.1",
     "vue": "^2.6.11",
