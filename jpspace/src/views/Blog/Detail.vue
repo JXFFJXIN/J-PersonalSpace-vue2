@@ -16,9 +16,11 @@
 import Layout from "@/components/Layout";
 import { getBlog } from "@/api/blog";
 import fetchData from "@/mixins/fetchData";
+import mainScroll from "@/mixins/mainScroll";
 import DetailBlog from "./DetailBlog";
 import TocBlog  from "./TocBlog";
 import CommentBlog from "./commentBlog";
+import { titleController } from "@/utils";
 export default {
   components: {
     Layout,
@@ -26,20 +28,13 @@ export default {
     TocBlog,
     CommentBlog,
   },
-  mixins: [fetchData(null)],
+  mixins: [fetchData(null),mainScroll("containerMain")],
   methods: {
     async fetchData() {
-      return await getBlog(this.$route.params.id);
+      const resp = await getBlog(this.$route.params.id);
+      titleController.setRouteTitle(resp.title);
+      return resp;
     },
-    handleScroll(){
-        this.$bus.$emit("mainScroll",this.$refs.containerMain)
-    }
-  },
-  mounted(){
-      this.refs.containerMain.addEventListener("scroll",this.handleScroll);
-  },
-  destroyed(){
-      this.$refs.containerMain.removeEventListener("scroll",this.handleScroll);
   },
   updated(){
       const hash = location.hash;

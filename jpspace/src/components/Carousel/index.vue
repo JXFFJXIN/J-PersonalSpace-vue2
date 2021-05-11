@@ -1,5 +1,9 @@
 <template>
-  <div class="carouselbox-container" ref="container" @wheel="handleWheel">
+  <div
+    v-loading="loading" 
+    class="carouselbox-container" 
+    ref="container" 
+    @wheel="handleWheel">
     <!-- 内容列表 -->
     <ul
       class="carousel-container"
@@ -8,7 +12,7 @@
       }"
       @transitionend="handleTransitionEnd"
     >
-      <li v-for="(item, i) in banners" :key="item.id">
+      <li v-for="(item, i) in data" :key="item.id">
         <Item :carousel="item" />
       </li>
     </ul>
@@ -21,7 +25,7 @@
       <Icon type="arrowUp" />
     </div>
     <div
-      v-show="index < banners.length - 1"
+      v-show="index < data.length - 1"
       @click="changeItem(index + 1)"
       class="icon icon-down"
     >
@@ -33,7 +37,7 @@
         :class="{
           active: i === index,
         }"
-        v-for="(item, i) in banners"
+        v-for="(item, i) in data"
         :key="item.id"
         @click="changeItem(i)"
       ></li>
@@ -42,9 +46,10 @@
 </template>
 
 <script>
-import { getBanners } from "@/api/banner";
+import {mapState} from "vuex";
 import Item from "./item";
 import Icon from "@/components/Icon";
+
 export default {
   components: {
     Item,
@@ -52,14 +57,13 @@ export default {
   },
   data() {
     return {
-      banners: [],
       index: 0,
       containerHeight: 0,
       isSwitching: false,
     };
   },
-  async created() {
-    this.banners = await getBanners();
+  created() {
+    this.$store.dispatch("banner/fetchBanner")
   },
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight;
@@ -72,10 +76,10 @@ export default {
     marginTop() {
       return `${-this.index * +this.containerHeight}px`;
     },
+    ...mapState("banner",["loading","data"])
   },
   methods: {
     changeItem(index) {
-      // 改变显示索引
       this.index = index;
     },
     handleTransitionEnd() {
@@ -94,7 +98,7 @@ export default {
         // 往上滚动
         this.isSwitching = true;
         this.index--;
-      } else if (e.deltaY > 5 && this.index < this.banners.length - 1) {
+      } else if (e.deltaY > 5 && this.index < this.data.length - 1) {
         // 往下滚动
         this.isSwitching = true;
         this.index++;

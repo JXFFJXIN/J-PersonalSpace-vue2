@@ -1,5 +1,5 @@
 <template>
-  <div class="list-container" ref="container" v-loading="isLoading">
+  <div class="list-container" ref="containerMain" v-loading="isLoading">
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
@@ -11,7 +11,7 @@
               }
             }"
           >
-            <img :src="item.thumb" :alt="item.title" :title="item.title" />
+            <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
           </RouterLink>
         </div>
         <div class="main">
@@ -60,8 +60,9 @@ import Pager from "@/components/Pager";
 import fetchData from "@/mixins/fetchData";
 import { getBlogs } from "@/api/blog";
 import formatDate from "@/mixins/formatDate";
+import mainScroll from "@/mixins/mainScroll";
 export default {
-  mixins: [fetchData({}), formatDate()],
+  mixins: [fetchData({}), formatDate(),mainScroll("containerMain")],
   components: {
     Pager,
   },
@@ -86,7 +87,6 @@ export default {
       );
     },
     handleChangePage(newPage) {
-      // 接收页码索引，改变地址栏
       const query = {
         page: newPage,
         limit: this.infoRoute.limit,
@@ -111,7 +111,7 @@ export default {
     async $route() {
       // 监听$route对象
       this.isLoading = true;
-      this.$refs.container.scrollTop = 0;
+      this.$refs.containerMain.scrollTop = 0;
       this.data = await this.fetchData();
       this.isLoading = false;
     },

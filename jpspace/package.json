@@ -15,7 +15,8 @@
     "test:Menu": "vue serve ./src/components/Menu/test.vue",
     "test:Aside": "vue serve ./src/components/Aside/test.vue",
     "test:Carousel": "vue serve ./src/components/Carousel/test.vue",
-    "test:Toc": "vue serve ./src/components/Toc/test.vue"
+    "test:Toc": "vue serve ./src/components/Toc/test.vue",
+    "test:ToTop": "vue serve ./src/components/ToTop/test.vue"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -24,7 +25,8 @@
     "mockjs": "^1.1.0",
     "querystring": "^0.2.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.5.1"
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

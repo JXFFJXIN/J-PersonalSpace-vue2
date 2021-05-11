@@ -1,7 +1,7 @@
 <template functional>
   <img 
     class="avatar-container"
-    :src="props.url"
+    v-lazy="props.url"
     :style="{
         width: props.size + 'px',
         height: props.size + 'px'

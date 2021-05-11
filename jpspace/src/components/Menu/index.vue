@@ -73,7 +73,7 @@ export default {
     display: flex;
     align-items: center;
 
-    height: 40px;
+    height: 30px;
     .icon {
       width: 24px;
       padding-right: 10px;

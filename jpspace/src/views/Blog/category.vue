@@ -16,15 +16,12 @@ export default {
   mixins: [fetchData([])], // data[isloading,data]
   computed: {
     categoryId() {
-      //   获取地址栏参数
       return +this.$route.params.categoryId || -1;
     },
     limit() {
-      //   获取地址栏参数
       return +this.$route.query.limit || 10;
     },
     list() {
-      //   组合数据
       const totalArticleCount = this.data.reduce(
         (a, b) => a + b.articleCount,
         0

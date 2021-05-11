@@ -1,16 +1,47 @@
 <template>
     <ul class="list-container">
-      <li v-for="(it, i) in data" :key="i">
-        <a :href="it.src">
-          <div class="icon">
-            <Icon :type="it.icon" />
-          </div>
-          <span>{{ it.text }}</span>
-        </a>
-        <div class="pop" v-if="it.pop">
-          <img :src="it.pop.src" alt="" />
+      <li>
+      <a target="_blank" :href="data.github">
+        <div class="icon">
+          <Icon type="github" />
         </div>
-      </li>
+        <span>{{ data.githubName }}</span>
+      </a>
+    </li>
+    <li>
+      <a :href="`mailto:${data.mail}`">
+        <div class="icon">
+          <Icon type="mail" />
+        </div>
+        <span>{{ data.mail }}</span>
+      </a>
+    </li>
+    <li>
+      <a
+        :href="
+          `tencent://message/?Menu=yes&uin=${data.qq}&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45`
+        "
+      >
+        <div class="icon">
+          <Icon type="qq" />
+        </div>
+        <span>{{ data.qq }}</span>
+      </a>
+      <div class="pop">
+        <img :src="data.qqQrCode" alt="" />
+      </div>
+    </li>
+    <li>
+      <a>
+        <div class="icon weixin">
+          <Icon type="weixin" />
+        </div>
+        <span>{{ data.weixin }}</span>
+      </a>
+      <div class="pop">
+        <img :src="data.weixinQrCode" alt="" />
+      </div>
+    </li>
     </ul>
 </template>
 
@@ -22,7 +53,7 @@ export default {
   },
   props: {
     data: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },
@@ -32,8 +63,9 @@ export default {
 <style scoped lang="less">
 @import "~@/styles/var.less";
 .list-container {
+  padding-top: 10px;
   list-style: none;
-  padding: 10px;
+  padding-left: 10px;
   margin: 0;
   color: @color-gray;
   @item-height: 30px;
@@ -58,7 +90,7 @@ export default {
     font-size: @fontSize-big;
     width: 36px;
     &.weixin {
-      font-size: 32px;
+      font-size: 24px;
       text-indent: -3px;
     }
   }
