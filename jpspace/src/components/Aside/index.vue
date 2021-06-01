@@ -2,13 +2,13 @@
   <div class="aside-container">
     <template v-if="data">
       <Avatar :url="data.avatar" />
-      <h1 class="title">{{ data.siteTitle }}</h1>
+      <h1 class="title">锥辅の小窝</h1>
     </template>
 
     <Menu />
     <List v-if="data" :data="data" />
     <p v-if="data" class="footer">
-      {{ data.icp }}
+      深ICP备17003838号
     </p>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
     Menu,
     List,
   },
-  computed: mapState("setting",["data"])
+  computed: mapState("setting",["data"]),
 };
 </script>
 

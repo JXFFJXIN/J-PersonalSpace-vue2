@@ -1,5 +1,7 @@
 import request from "./request";
 
 export async function getSetting() {
-  return await request.get("/api/setting");
+  const result =  await request.get("/api/setting");
+  console.log(result);
+  return result;
 }

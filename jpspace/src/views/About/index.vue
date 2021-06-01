@@ -1,12 +1,11 @@
 <template>
   <div class="about-container" v-loading="loading || !isLoaded">
-    <iframe
+    <img
       v-if="src"
       class="about-item"
-      :src="src"
-      frameborder="0"
+      src="../../assets/about.png"
       @load="isLoaded = true"
-    ></iframe>
+    ></img>
   </div>
 </template>
 
@@ -32,13 +31,13 @@ export default {
 .about-container {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
   .about-item{
     width: 100%;
-    height: 100%;
     display: block;
     box-sizing: border-box;
+    object-fit:fill;
   }
 }
 </style>

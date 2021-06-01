@@ -1,34 +1,34 @@
 <template>
     <ul class="list-container">
       <li>
-      <a target="_blank" :href="data.github">
+      <a target="_blank" href="https://github.com/JXFFJXIN">
         <div class="icon">
           <Icon type="github" />
         </div>
-        <span>{{ data.githubName }}</span>
+        <span>JXFFJXIN</span>
       </a>
     </li>
     <li>
-      <a :href="`mailto:${data.mail}`">
+      <a :href="`mailto:136848383@qq.com`">
         <div class="icon">
           <Icon type="mail" />
         </div>
-        <span>{{ data.mail }}</span>
+        <span>136848383@qq.com</span>
       </a>
     </li>
     <li>
       <a
         :href="
-          `tencent://message/?Menu=yes&uin=${data.qq}&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45`
+          `tencent://message/?Menu=yes&uin=136848383&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45`
         "
       >
         <div class="icon">
           <Icon type="qq" />
         </div>
-        <span>{{ data.qq }}</span>
+        <span>136848383</span>
       </a>
       <div class="pop">
-        <img :src="data.qqQrCode" alt="" />
+        <img src="../../assets/long.png" alt="" />
       </div>
     </li>
     <li>
@@ -36,10 +36,10 @@
         <div class="icon weixin">
           <Icon type="weixin" />
         </div>
-        <span>{{ data.weixin }}</span>
+        <span>-锥辅-</span>
       </a>
       <div class="pop">
-        <img :src="data.weixinQrCode" alt="" />
+        <img src="../../assets/zhognzi.png" alt="" />
       </div>
     </li>
     </ul>
